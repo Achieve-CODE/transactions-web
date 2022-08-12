@@ -47,7 +47,7 @@ flex flex-col justify-center items-center gap-10
 bg-green-500">
 
 	<div class="text-4xl text-white border-b-2 border-white pb-10">
-		<span class="text-6xl font-bold">{total / 0.8}</span> steps
+		<span class="text-6xl font-bold">{Math.round(total / 0.8)}</span> steps
 	</div>
 
 	{#if timeout}
