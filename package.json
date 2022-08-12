@@ -31,6 +31,8 @@
 	"type": "module",
 	"dependencies": {
 		"@sveltejs/adapter-static": "^1.0.0-next.39",
-		"haversine-distance": "^1.2.1"
+		"haversine-distance": "^1.2.1",
+		"node-sass": "^7.0.1",
+		"sass": "^1.54.4"
 	}
 }
