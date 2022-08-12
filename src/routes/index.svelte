@@ -1,5 +1,6 @@
 <script lang="ts">
 	import haversine from 'haversine-distance';
+
 	let lat: number;
 	let long: number;
 
@@ -10,14 +11,12 @@
 
 	function getLocation() {
 		if (navigator.geolocation) {
-			console.log(
-				navigator.geolocation.getCurrentPosition((position) => {
-					latOld = lat;
-					longOld = long;
-					lat = position.coords.latitude;
-					long = position.coords.longitude;
-				})
-			);
+			navigator.geolocation.getCurrentPosition((position) => {
+				latOld = lat;
+				longOld = long;
+				lat = position.coords.latitude;
+				long = position.coords.longitude;
+			});
 		}
 	}
 
@@ -34,15 +33,17 @@
 
 	function stop() {
 		clearTimeout(timeout);
+		timeout = null;
 	}
 </script>
 
-{lat}
-{long}
-
+Latitude: {lat}
+Longitude: {long}
 total: {total}
-
 steps: {total / 0.8}
 
-<button on:click={walk}>start</button>
-<button on:click={stop}>stop</button>
+{#if timeout}
+	<button on:click={stop}>stop</button>
+{:else}
+	<button on:click={walk}>start</button>
+{/if}
