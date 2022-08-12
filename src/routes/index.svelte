@@ -44,7 +44,7 @@ total: {total} -->
 
 <div class="min-w-screen min-h-screen h-full w-full 
 flex flex-col justify-center items-center gap-10
-bg-green-500">
+bg-[#F27F3D]">
 
 	<div class="text-4xl text-white border-b-2 border-white pb-10">
 		<span class="text-6xl font-bold">{Math.round(total / 0.8)}</span> steps
