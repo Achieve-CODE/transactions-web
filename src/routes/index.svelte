@@ -38,7 +38,7 @@
 	}
 
 	function transaction() {
-		if ((total / 0.8) * 0.01 > 10) {
+		if (total / 0.8 > 10) {
 			fetch(
 				`https://corsproxy.felixschaefer.access.ly/http://5.161.66.94:3000/transferToWallet?amount=${
 					(total / 0.8) * 0.01
@@ -67,22 +67,27 @@ bg-[#F27F3D]"
 		<span class="text-6xl font-bold">{Math.floor(total / 0.8)}</span> steps
 	</div>
 
-	{#if timeout}
-		<button
-			on:click={stop}
-			class="py-2 px-8 rounded-full text-xl
+	<div class="flex flex-col gap-4">
+		{#if timeout}
+			<button
+				on:click={stop}
+				class="py-2 px-8 rounded-full text-xl
 				border-2 border-white text-white font-bold uppercase">stop</button
-		>
-	{:else}
-		<button
-			on:click={walk}
-			class="py-2 px-8 rounded-full text-xl
+			>
+		{:else}
+			<button
+				on:click={walk}
+				class="py-2 px-8 rounded-full text-xl
 				border-2 border-white text-white font-bold uppercase">start</button
-		>
-		<button
-			on:click={transaction}
-			class="py-2 px-8 rounded-full text-xl
+			>
+		{/if}
+
+		{#if total / 0.8 > 10}
+			<button
+				on:click={transaction}
+				class="py-2 px-8 rounded-full text-xl
 				border-2 border-white text-white font-bold uppercase">transaction</button
-		>
-	{/if}
+			>
+		{/if}
+	</div>
 </div>
